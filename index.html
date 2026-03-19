@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AGENT C2</title>
+
+<style>
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at center, #0a0000, #000);
+  color: #ff2a2a;
+  font-family: monospace;
+  overflow: hidden;
+}
+
+/* خطوط متحركة بالخلفية */
+body::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,0,0,0.05) 3px
+  );
+  animation: moveBg 10s linear infinite;
+}
+
+@keyframes moveBg {
+  from { transform: translateY(0); }
+  to { transform: translateY(100px); }
+}
+
+/* الهيدر */
+.header {
+  text-align: center;
+  padding: 15px;
+  border-bottom: 1px solid red;
+  text-shadow: 0 0 10px red;
+  letter-spacing: 3px;
+}
+
+/* الكونتينر */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* كروت */
+.card {
+  background: rgba(20,0,0,0.7);
+  border: 1px solid red;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 0 25px rgba(255,0,0,0.5);
+  position: relative;
+}
+
+/* توهج عند المرور */
+.card:hover {
+  box-shadow: 0 0 40px red;
+}
+
+/* نص متحرك (typing) */
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid red;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards;
+}
+
+@keyframes typing {
+  to { width: 100%; }
+}
+
+/* رادار */
+.radar {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px solid red;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 0 40px red;
+}
+
+.scan {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: red;
+  top: 50%;
+  transform-origin: left;
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* دائرة نبض */
+.pulse {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid red;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.3); opacity: 0.1; }
+  100% { transform: scale(1); opacity: 0.4; }
+}
+
+/* انبوت */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background: black;
+  border: 1px solid red;
+  color: red;
+  border-radius: 8px;
+}
+
+/* زر */
+button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(red, darkred);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 25px red;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 0 50px red;
+}
+
+/* شريط علوي */
+.topbar {
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  border-bottom: 1px solid red;
+  opacity: 0.7;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+AGENT C2 • SECURE LINK • ACCESS GRANTED • NODE ACTIVE
+</div>
+
+<div class="header">
+AGENT C2 CONTROL SYSTEM
+</div>
+
+<div class="container">
+
+  <!-- AI LOG -->
+  <div class="card">
+    <h3>AI LOG</h3>
+    <div class="typing">
+      > Booting system... Connected... Ready...
+    </div>
+  </div>
+
+  <!-- RADAR -->
+  <div class="card">
+    <h3>SCAN CORE</h3>
+    <div class="radar">
+      <div class="pulse"></div>
+      <div class="scan"></div>
+    </div>
+  </div>
+
+  <!-- COMMAND -->
+  <div class="card">
+    <h3>COMMAND</h3>
+    <input placeholder="Target Node">
+    <input placeholder="Protocol Type">
+    <input placeholder="Access Key">
+    <button onclick="alert('MISSION STARTED 🚀')">EXECUTE</button>
+  </div>
+
+  <!-- STATUS -->
+  <div class="card">
+    <h3>SYSTEM</h3>
+    CPU: ███████░░ 78%<br><br>
+    NETWORK: ONLINE<br><br>
+    SECURITY: MAXIMUM
+  </div>
+
+</div>
+
+</body>
+</html>
